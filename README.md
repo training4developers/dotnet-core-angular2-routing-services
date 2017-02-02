@@ -1,10 +1,10 @@
-# .NET Core + Angular 2 Tutorial - Part 3
+# .NET Core + Angular 2 Tutorial - Part 3 - Angular 2 Routing & Services
 
-Read the tutorial here: [https://www.accelebrate.com/library/tutorials/angular2-net-core-data-table](https://www.accelebrate.com/library/tutorials/angular2-net-core-data-table)
+Read the tutorial here: []()
 
 ## Quick Instructions
 
-Step 1. Download or the clone this repo to your local system.
+Step 1. Download or the clone this repo to your local system. If you download the zip, extract the zip file.
 
 Step 2. Open a terminal, and change to the folder where the package.json file exists.
 
