@@ -28,6 +28,7 @@ namespace Training4Developers.Data
     }
 
     public IWidget Get(int id) {
+      // find a single widget, and ensure only a single widget is returned
       return _dbContext.Widgets.Where(w => w.Id == id).Select(w => new Widget {
         Id = w.Id,
         Name = w.Name,

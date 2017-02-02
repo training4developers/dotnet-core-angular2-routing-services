@@ -17,14 +17,17 @@ namespace Training4Developers.Controllers
     [HttpGet]
     public IActionResult Get()
     {
+      // wrap the object to be an action result
       return new ObjectResult(_widgetRepo.GetAll());
     }
 
+    // specify a parameters for the route
     [HttpGet("{id}")]
     public IActionResult Get(int id) {
 
         var widget = _widgetRepo.Get(id);
 
+        // if no widget is found, return a 404 error
         if (widget == null) {
             return NotFound();
         }
