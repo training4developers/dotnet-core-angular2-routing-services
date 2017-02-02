@@ -2,9 +2,11 @@
 // Angular 2 module
 import { Component, OnInit } from '@angular/core';
 
-// imports the widget interface for defining widget models
+// import the widget interface for defining widget models
 import { Widget } from './models/widget';
 
+// import the Widgets service for getting widgets from the
+// REST service
 import { Widgets } from './services/widgets';
 
 // The Component Decorator configures this class
@@ -23,6 +25,7 @@ export class AppComponent implements OnInit {
     // array of widgets to display in the table
     private widgets: Widget[] = null;
 
+    // use the current year for the copyright year
     private copyright: string = `Copyright ${(new Date()).getFullYear()} Widget Application`;
 
     // inject the http service into the component

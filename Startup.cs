@@ -93,7 +93,9 @@ namespace WidgetsApp
 
             app.UseStaticFiles();
             app.UseMvc(routes => {
+                // if no router matches, use the default route, with the following values
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                // return home controller index action for client-side routes
                 routes.MapRoute("spa-fallback", "{*anything}", new { controller = "Home", action = "Index" });
             });
         }

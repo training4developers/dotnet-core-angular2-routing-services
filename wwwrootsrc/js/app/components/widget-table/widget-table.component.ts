@@ -11,6 +11,7 @@ import { Widget } from "../../models/widget";
 })
 export class WidgetTable implements OnInit {
 
+    // private fields to hold widgets
     private widgets: Widget[] = [];
 
     constructor(
@@ -18,11 +19,14 @@ export class WidgetTable implements OnInit {
         private router: Router
     ) { }
 
+    // retrieve all of the widgets from the REST service when
+    // the component is loaded
     ngOnInit() {
         this.widgetsSvc.getAll()
             .subscribe(widgets => this.widgets = widgets);
     }
 
+    // navigate to the widget view component
     viewWidget(widgetId: number) {
         this.router.navigate(['widget', widgetId]);
     }
