@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
 
 using Training4Developers.Interfaces;
-using Training4Developers.Models;
 
 namespace Training4Developers.Controllers
 {
@@ -20,6 +18,18 @@ namespace Training4Developers.Controllers
     public IActionResult Get()
     {
       return new ObjectResult(_widgetRepo.GetAll());
+    }
+
+    [HttpGet("{id}")]
+    public IActionResult Get(int id) {
+
+        var widget = _widgetRepo.Get(id);
+
+        if (widget == null) {
+            return NotFound();
+        }
+
+        return new ObjectResult(widget);
     }
   }
 }

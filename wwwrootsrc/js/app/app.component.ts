@@ -1,13 +1,14 @@
 // imports the Component decorator from the core
 // Angular 2 module
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
 
+// imports the widget interface for defining widget models
 import { Widget } from './models/widget';
+
+import { Widgets } from './services/widgets';
 
 // The Component Decorator configures this class
 // to serve as a component in the Angular 2 application
-
 @Component({
     // Used to identify the element the component will be applied to in
     // the DOM structure of the web page
@@ -15,23 +16,27 @@ import { Widget } from './models/widget';
     // Loads the component's specific styles
     styles: [require('./app.component.scss')],
     // Loads the component's template
-    template: require('./app.component.html')
+    template: require('./app.component.html'),
 })
 export class AppComponent implements OnInit {
  
-    // sets a property on the component which will be referenced
-    // as a template variable in the template file
-    message: string = 'Hello World!';
+    // array of widgets to display in the table
+    private widgets: Widget[] = null;
 
-    widgets: Widget[] = null;
+    private copyright: string = `Copyright ${(new Date()).getFullYear()} Widget Application`;
 
-    constructor(private http: Http) { }
+    // inject the http service into the component
+    // marked as private so http will be available
+    // as private field on the component instance
+    constructor(private widgetsSvc: Widgets) { }
 
+    // runs when the component is instantiated
     ngOnInit() {
-    this.http.get('/widgets')
-        .map(res => res.json())
-        .subscribe(widgets => {
-        this.widgets = widgets;
-        });
+
+        // retrieve the widgets from the REST services
+        this.widgetsSvc.getAll()
+            .subscribe(widgets => {
+                this.widgets = widgets;
+            });
     }    
 }

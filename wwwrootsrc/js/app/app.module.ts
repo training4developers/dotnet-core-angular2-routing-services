@@ -12,8 +12,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpModule } from '@angular/http';
 
-// Import the AppComponent so it can be registered with the AppModule
+import { AppRouterModule } from './app.router'; 
+
+// Imports the components to be registered with the Application
 import { AppComponent } from './app.component';
+import { WidgetTable } from "./components/widget-table/widget-table.component";
+import { WidgetView } from "./components/widget-view/widget-view.component";
+
+// Imports the Widgets Service so it can be registered with the Application Module
+import { Widgets } from "./services/widgets";
 
 // Imports the global styles for the application
 // Angular 2 apps have two kinds of styles, global and component-specific
@@ -26,8 +33,15 @@ import '../../css/styles.scss';
 // Each Angular 2 application has a top-level AppModule
 // from which the application bootstraps itself
 @NgModule({
-    imports: [ BrowserModule, HttpModule ],
-    declarations: [ AppComponent ],
-    bootstrap: [ AppComponent ]
+    // import the BrowserModule and the
+    // HttpModule into the App module
+    imports: [ BrowserModule, HttpModule, AppRouterModule ],
+    // Make the App, Widget Table, and Widget View components available
+    // for use in the templates
+    declarations: [ AppComponent, WidgetTable, WidgetView ],
+    // Start the application from the App component
+    bootstrap: [ AppComponent ],
+    // makes the service available to the component
+    providers: [ Widgets ],    
 })
 export class AppModule { }

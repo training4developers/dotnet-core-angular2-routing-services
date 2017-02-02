@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Color</th>
+      <th>Size</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor="let widget of widgets">
+     <td>{{widget.name}}</td>
+     <td>{{widget.color}}</td>
+     <td>{{widget.size}}</td>
+     <td>{{widget.quantity}}</td>
+     <td>{{widget.price}}</td>
+     <td>
+         <button type="button" (click)="viewWidget(widget.id)">View</button>
+     </td>
+    </tr>
+   </tbody>
+</table>
