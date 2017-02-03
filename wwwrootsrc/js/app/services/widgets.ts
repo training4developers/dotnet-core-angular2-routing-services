@@ -8,6 +8,8 @@ import { Widget } from "../models/widget";
 // moved the widgets http code to a service so it can be utilized throughout
 // the Angular 2 application
 
+// the Injectable decorator allows other services to be injected
+// into this service, such as the Http service
 @Injectable()
 export class Widgets {
 

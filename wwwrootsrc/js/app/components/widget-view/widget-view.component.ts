@@ -5,8 +5,9 @@ import { Widgets } from "../../services/widgets";
 import { Widget } from "../../models/widget";
 
 @Component({
-    template: require('./widget-view.component.html'),
-    styles: [ require('./widget-view.component.scss') ]
+    selector: "widget-view",
+    template: require("./widget-view.component.html"),
+    styles: [ require("./widget-view.component.scss") ]
 })
 export class WidgetView implements OnInit {
 
@@ -23,13 +24,13 @@ export class WidgetView implements OnInit {
     // has been loaded
     public ngOnInit() {
         this.route.params.subscribe(params =>
-            this.widgets.get(params['widgetId'])
+            this.widgets.get(params["widgetId"])
                 .subscribe(widget => this.widget = widget));
     }
 
     // navigate to the widget table
     public returnToList() {
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl("/");
     }
 
 }

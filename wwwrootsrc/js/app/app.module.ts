@@ -10,8 +10,11 @@ import { NgModule } from '@angular/core';
 // and other platform modules will be available.
 import { BrowserModule } from '@angular/platform-browser';
 
+// Imports the Http module to provide access to AJAX request
+// to REST services
 import { HttpModule } from '@angular/http';
 
+// Imports the routing configuration for the application
 import { AppRouterModule } from './app.router'; 
 
 // Imports the components to be registered with the Application
@@ -33,8 +36,7 @@ import '../../css/styles.scss';
 // Each Angular 2 application has a top-level AppModule
 // from which the application bootstraps itself
 @NgModule({
-    // import the BrowserModule and the
-    // HttpModule into the App module
+    // import the modules needed by AppModule
     imports: [ BrowserModule, HttpModule, AppRouterModule ],
     // Make the App, Widget Table, and Widget View components available
     // for use in the templates
