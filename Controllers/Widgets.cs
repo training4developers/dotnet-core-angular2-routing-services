@@ -21,7 +21,7 @@ namespace Training4Developers.Controllers
       return new ObjectResult(_widgetRepo.GetAll());
     }
 
-    // specify a parameters for the route
+    // specify parameters for the route
     [HttpGet("{id}")]
     public IActionResult Get(int id) {
 

@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
@@ -12,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 using Training4Developers.Interfaces;
 using Training4Developers.Data;
-using Training4Developers.Models;
+
 using DataModels = Training4Developers.Data.Models;
 
 namespace WidgetsApp
@@ -43,6 +38,7 @@ namespace WidgetsApp
             options.UseSqlite(connectionString));
             services.AddMvc();
 
+            // maps the interface to the concrete class to be injected
             services.AddScoped<IWidgetRepo, WidgetRepo>();
         }
 
@@ -93,7 +89,7 @@ namespace WidgetsApp
 
             app.UseStaticFiles();
             app.UseMvc(routes => {
-                // if no router matches, use the default route, with the following values
+                // if no route matches, use the default route, with the following values
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
                 // return home controller index action for client-side routes
                 routes.MapRoute("spa-fallback", "{*anything}", new { controller = "Home", action = "Index" });
