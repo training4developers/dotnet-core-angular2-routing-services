@@ -1,4 +1,4 @@
-# .NET Core + Angular 2 Tutorial - Part 3 - Angular 2 Routing & Services
+# .NET Core + Angular 2 Tutorial - Part 3 - Routing & Services
 
 Read the tutorial here: []()
 
