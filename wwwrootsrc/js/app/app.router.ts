@@ -7,8 +7,8 @@ import { WidgetView } from './components/widget-view/widget-view.component';
 // component is the component to load for the specified path
 // :widgetId is the parameter
 const appRoutes: Route[] = [
-	{ path: '', component: WidgetTable },
     { path: 'widget/:widgetId', component: WidgetView },
+	{ path: '', component: WidgetTable },
 ];
 
 // construct a customized router module with the custom routes
